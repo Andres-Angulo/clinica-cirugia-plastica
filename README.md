@@ -11,4 +11,4 @@ La página también se desarrolló en las medidas para móvil (375px)
 
 Para que el servicio de email (enviar.php) funcione correctamente, se subió la página al hosting 000webhost.com
 
-Enlace para visualizar la página: https://angulosanguino.000webhostapp.com/
+Enlace para visualizar la página: http://andresangulo.x10.mx/
