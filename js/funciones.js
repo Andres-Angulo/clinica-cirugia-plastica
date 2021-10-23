@@ -32,17 +32,19 @@ $("#menu").click(function () {
 );
 
 //FUNCION PARA TABS
-$("#btn1").addClass("activo");
-$("#contenedor_tabs article").hide();
-$("#op1").show();
-
-$(".link").click(function () {
-  $(".link").removeClass("activo");
-  $(this).addClass("activo");
-  $("#contenedor_tabs article").hide();
-  var activar_tab = $(this).attr("href");
-  $(activar_tab).show();
+let tabs = Array.prototype.slice.apply($('.link'));
+let panels = Array.prototype.slice.apply($('.contenido_item'));
+$('#tabs').click(e => {
+  e.preventDefault();
+  if (e.target.classList.contains('link')) {
+    let i = tabs.indexOf(e.target);
+    tabs.map(tab => tab.classList.remove('tab_activo'));
+    tabs[i].classList.add('tab_activo');
+    panels.map(panel => panel.classList.remove('tab_elemento_activo'));
+    panels[i].classList.add('tab_elemento_activo');
+  }
 });
+
 
 //FUNCION FANCYBOX
 $(document).ready(function () {
@@ -54,24 +56,7 @@ $(document).ready(function () {
 
 //FUNCION ACORDEON
 $(".contenido_perfil").click(function(){
-  var elemento = $(this);
-  var otroelemento = elemento.next();
+  let elemento = $(this);
+  let otroelemento = elemento.next();
   otroelemento.slideToggle();
 });
-
-//FUNCION MODAL
-var modal= document.getElementById("modal");
-    var btn= document.getElementById("btnmodal");
-    var cerrar= document.getElementById("cerrarmodal");
-
-    btn.onclick= function(){
-      modal.style.display="block";
-    };
-    cerrar.onclick= function(){
-      modal.style.display="none";
-    };
-    window.onclick= function(event){
-      if (event.target == modal) {
-        modal.style.display= "none";
-      }
-    };
